@@ -1,18 +1,24 @@
 
 module.exports = { //export the functions to be used in app.js
 
-    splitGenres: function(movies){ //split | separated generes into arrays
+    //Split '|' separated generes into arrays. Returns array of objects
+    splitGenres: function(movies){ 
         for(var obj of movies){
             obj.genres=obj.genres.split('|');
         }
         return movies;
     },
 
-    searchMovies: function(movies){
+    //Search array of movie objects. Find movies that match search genre. Return array of matching movies
+    //Right now only searches based on one string genre. 
+    //Need to expand to search against array of search terms?
+    //Create a dictionary?
+    searchMovies: function(movies,query){
+        let search = query.genre;
         //Filter movies by genre
         var output = movies.filter(movie => {
             return movie.genres.find(genre =>{
-                if(genre === "Comedy"){
+                if(genre === search){
                     return true;
                 };
             });
@@ -20,10 +26,9 @@ module.exports = { //export the functions to be used in app.js
         return output;
     },
 
-    //const filtered = search.filter((entry) => Object.values(entry).flat().some((val) => typeof val === 'string' && val.includes(searchTerm)));
 
+    //Old testing Function. Not using anymore. 
     testing: function(){ //function to test on test data
-
         //Test Data
         let testquery = "comedy";
         let movies = [
