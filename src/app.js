@@ -5,31 +5,32 @@ const port = 3000
 
 //File Handling Stuff
 const fs = require('fs'); //file stream
-const papa = require('papaparse'); //csv parser plug in
 const path = require('path'); //http path
-const csvFilePath = 'movieData/movies.csv'; //csv file path
-const file = fs.createReadStream(csvFilePath, 'utf8'); //raw data from csv file
+const csvFilePath = 'movieData/movies.csv'; //csv file path 
+const csvParser = require("csv-parser") //csv-parser plug in
 
 //JS Functions
 const tools = require('./tools.js')
 
-
-//Get JSON list of matching movies (query: one genre)
 app.get('/search/:genre', (req, res) => {
     let query = req.params;
+    var parsedData = [];
     console.log("This is what the query looks like: ", query);
-    //Load data from local csv file
-    papa.parse(file, {
-        header: true,
-        download: true,
-        worker: false,
-        complete: function(results) {
-            let movieData = tools.splitGenres(results.data); //split '|' separated genres into arrays
-            let result = tools.searchMovies(movieData, query);//search for matching movies, return array of matches
-            let jsonResults = JSON.parse(JSON.stringify(result));//convert array of objects to json
+    //Parse csv data to array of objects
+    fs.createReadStream(csvFilePath)
+        .pipe(csvParser())
+        .on('data', (data) => {
+            parsedData.push(data);
+        })
+        .on("end", () =>{
+            console.log("csv-parser success, # of movies: ", parsedData.length);
+            //Operations on the parsed data
+            let movieData = tools.splitGenres(parsedData); //split '|' separated genres into arrays
+            let searchResults = tools.searchMovies(movieData, query);//search for matching movies, return array of matches
+            let jsonResults = JSON.parse(JSON.stringify(searchResults));//convert array of objects to json
             res.json(jsonResults)//send results as json data
-        }
-    });
+        })
+
 })
 
 //Get static home page
