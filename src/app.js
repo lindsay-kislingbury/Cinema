@@ -1,5 +1,5 @@
 //Express Routing Stuff
-const express = require('express') 
+const express = require('express') //express plug in
 const app = express()   
 const port = 3000
 
@@ -29,6 +29,7 @@ app.get('/search/:genre', (req, res) => {
             let searchResults = tools.searchMovies(movieData, query);//search for matching movies, return array of matches
             let jsonResults = JSON.parse(JSON.stringify(searchResults));//convert array of objects to json
             res.json(jsonResults)//send results as json data
+            console.log("completed json: ", jsonResults);
         })
 
 })
