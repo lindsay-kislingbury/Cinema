@@ -16,7 +16,7 @@ const csvParser = require("csv-parser") //csv-parser plug in
 //JS Functions
 const tools = require('./tools.js')
 
-//When html navigates to /seach, send this POST
+//When html navigates to /seach
 app.post('/search', function(req, res) {
     let query = req.body.genre; 
     console.log("query: ", query);
@@ -39,7 +39,7 @@ app.post('/search', function(req, res) {
 })
 
 
-//Get static home page
+//Static home page
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname,'/index.html'));
 })
