@@ -31,7 +31,7 @@ app.post('/search', function(req, res) {
             console.log("csv-parser success, # of movies: ", parsedData.length);
             //Operations on the parsed data, these functions are in tools.js
             let movieData = tools.splitGenres(parsedData); //split '|' separated genres into arrays
-            let searchResults = tools.searchMovies(movieData, query);//search for matching movies, return array of matches
+            let searchResults = tools.searchMovies(movieData, query);//return array of matches
             let jsonResults = JSON.parse(JSON.stringify(searchResults));//convert array of objects to json
             console.log("completed json: ", jsonResults);
             res.json(jsonResults)//send results as json data

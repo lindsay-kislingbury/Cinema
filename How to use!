@@ -1,0 +1,14 @@
+How to run the program:
+  open a shell tab. New Tab -> search "Shell"
+  
+  To start node server:
+  type:
+  npm run start
+  
+  To stop the node server:
+  Enter:
+  Ctrl+C
+  
+  When you make changes to any of the files, you need 
+  to restart the noder server to see the changes.
+
