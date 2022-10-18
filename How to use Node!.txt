@@ -7,7 +7,7 @@ To start the node server: Click the "Run" button
 To stop the node server:
   Enter: Ctrl+C
   
-* When you make changes to any of the files, you need to restart the noder server to see the changes.
+* When you make changes to any of the files, you need to restart the node server to see the changes.
 
 * Don't delete the .gitignore file, we need this so that the npm package files don't get pushed to github, these are too large for github's limit.
 
