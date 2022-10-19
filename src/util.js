@@ -1,9 +1,8 @@
-//Perform all operations on the data return search results
+//Perform all operations on the data.  Return matching movies and the search terms
 function modifyData(parsedData, search){
     splitGenres(parsedData);
     let movieData = searchMovies(parsedData, search);
     let outputData = {movies: movieData, search: search}
-    console.log("search: ", outputData.search.genre[0])
     return outputData;
 }
 
@@ -15,18 +14,19 @@ function splitGenres(movies){
     }
 }
 
-//Search array of movie objects. Return array of matching movie objects
+//Search array of movies. Return array of matching movies
 function searchMovies(movies, search){
-    var matches = []; //array of matching movie objects
+    var matches = [];
     let searchTerms = search.genre;
     let searchType = search.type;
 
-    //make search terms into an array
+    //Make search terms into an array. Need to make this cleaner
     let searchArray = [];
     for(const index of searchTerms){
         searchArray.push(index);
     }
     
+    //Fill matches with matching movies
     movies.forEach(movie => {         
         if(searchType === "all"){ //request body.type.id is all
             if(searchArray.every(term => movie.genres.includes(term))){

@@ -39,9 +39,6 @@ app.post('/search', upload.none(), function(req, res) {
             console.log("csv-parser success, # of movies: ", parsedData.length);
             //Operations on the parsed data, these functions are in tools.js
             let results = util.modifyData(parsedData, query)
-            //console.log(results);
-            //Render results page, passing results to the page
-            //console.log(query);
             res.render('results', {'data': results});
         })
 })
