@@ -1,6 +1,7 @@
 ## Get Matching Movies
 
 ### POST/search/
+First page: views/index.ejs
 
 * Must include  `enctype = "multipart/form-data"` in form action.
     
@@ -40,7 +41,8 @@ These are the genres that exist in the data set that we can search for:
     Western   
 
 
-### GET/results/    
+### GET/results/   
+Second page: views/results.ejs
 
 Example of data sent to results page on a search for Crime and Sci-Fi
 ```
