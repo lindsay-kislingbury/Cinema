@@ -1,8 +1,9 @@
-//Perform all operations on the data and return search results
+//Perform all operations on the data return search results
 function modifyData(parsedData, search){
-    var outputData = splitGenres(parsedData);
-    outputData = searchMovies(outputData, search);
-    outputData = JSON.parse(JSON.stringify(outputData));
+    splitGenres(parsedData);
+    let movieData = searchMovies(parsedData, search);
+    let outputData = {movies: movieData, search: search}
+    console.log("search: ", outputData.search.genre[0])
     return outputData;
 }
 
@@ -12,7 +13,6 @@ function splitGenres(movies){
     for(var obj of movies){
         obj.genres=obj.genres.split('|');
     }
-    return movies;
 }
 
 //Search array of movie objects. Return array of matching movie objects
@@ -20,20 +20,26 @@ function searchMovies(movies, search){
     var matches = []; //array of matching movie objects
     let searchTerms = search.genre;
     let searchType = search.type;
+
+    //make search terms into an array
+    let searchArray = [];
+    for(const index of searchTerms){
+        searchArray.push(index);
+    }
     
     movies.forEach(movie => {         
-    if(searchType === "all"){ //request body.type.id is all
-        if(searchTerms.every(term => movie.genres.includes(term))){
-            matches.push(movie);
+        if(searchType === "all"){ //request body.type.id is all
+            if(searchArray.every(term => movie.genres.includes(term))){
+                matches.push(movie);
+            }
         }
-    }
-    else if(searchType === "any"){ //request body.type.id is any
-        if(searchTerms.some(term => movie.genres.includes(term))){
-            matches.push(movie);
-        } 
-    }
-})
-return matches;
+        else if(searchType === "any"){ //request body.type.id is any
+            if(searchArray.some(term => movie.genres.includes(term))){
+                matches.push(movie);
+            } 
+        }
+    })
+    return matches;
 }
 
 
