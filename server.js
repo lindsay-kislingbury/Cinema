@@ -2,9 +2,11 @@
 const express = require('express') //express plug in
 const app = express()   
 const port = 3000
+const path = require('path'); 
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Multer: Multi part request body
 const multer = require('multer')
@@ -12,12 +14,11 @@ const upload = multer({dest: 'uploads/'})
 
 //File Handling 
 const fs = require('fs'); //file stream
-const path = require('path'); //http path
 const csvFilePath = 'movieData/movies.csv'; //csv file path 
 const csvParser = require("csv-parser") //csv-parser plug in
 
 //JS Functions
-const util = require('./util.js')
+const util = require('./util')
 
 //Home page
 app.get('/', (req,res) =>{
@@ -39,6 +40,7 @@ app.post('/search', upload.none(), function(req, res) {
             console.log("csv-parser success, # of movies: ", parsedData.length);
             //Operations on the parsed data, these functions are in tools.js
             let results = util.modifyData(parsedData, query)
+            console.log(query);
             res.render('results', {'data': results});
         })
 })

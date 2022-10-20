@@ -7,7 +7,7 @@
         <!-- Stub to demonstrate how to access the data in the page -->
         <h2>List of all movies matching: 
         <% for(var i=0; i < data.search.genre.length; i++) { %>
-                <%- data.search.genre[i] %> ,
+                <%- data.search.genre[i] %>
         <% } %>
         </h2>
         <br>
@@ -16,7 +16,7 @@
                <b> <%- data.movies[i].title %> </b> <br>
                Genres:  
                 <% for(var j=0; j < data.movies[i].genres.length; j++) { %>
-                        <%- data.movies[i].genres[j] %> ,
+                        <%- data.movies[i].genres[j] %> 
                 <% } %>
                 <br><br>
             </li>
