@@ -1,4 +1,4 @@
-## Get Matching Movies
+# OUTDATED. WILL UPDATE SOON!
 
 ### POST/search/
 First page: views/index.ejs

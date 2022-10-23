@@ -23,12 +23,6 @@ const modify = require('./services/modify.js');
 //Home page
 app.get('/', (req,res) =>{
     req.header('Content-Type', 'application/json')
-    res.render('index')
-})
-
-//When html navigates to /search. using multer to get multipart form data
-app.post('/search', upload.none(), function(req, res) {
-    let query = req.body; 
     var parsedData = [];
     //Parse csv data to array of objects
     fs.createReadStream(csvFilePath)
@@ -38,12 +32,23 @@ app.post('/search', upload.none(), function(req, res) {
         })
         .on("end", () =>{
             console.log("csv-parser success, # of movies: ", parsedData.length);
-            var modifiedData = [];
-            modifiedData = modify.modifyData(parsedData);
-            console.log("data: ", modifiedData);
+            let data = modify.exportData(parsedData);
+            //console.log(data.allKeywords[0]);
+            res.render('index', {data});
         })
 })
 
+//When html navigates to /search. using multer to get multipart form data
+app.post('/search', upload.none(), function(req, res) {
+    let query = req.body; 
+    console.log(query);
+    res.render('results', {query});
+
+})
+
+app.get('/results', function(req, res){
+    
+})
 //port 3000
 app.listen(port, () => {
     console.log('app listening on port ${port}')
