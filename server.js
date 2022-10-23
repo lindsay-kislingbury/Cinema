@@ -21,7 +21,7 @@ const csvParser = require("csv-parser") //csv-parser plug in
 const modify = require('./services/modify.js');
 
 //Home page
-app.get('/', (req,res) =>{
+app.get('/', (req,res,next) =>{
     req.header('Content-Type', 'application/json')
     var parsedData = [];
     //Parse csv data to array of objects
@@ -33,6 +33,7 @@ app.get('/', (req,res) =>{
         .on("end", () =>{
             console.log("csv-parser success, # of movies: ", parsedData.length);
             let data = modify.exportData(parsedData);
+            app.set("allData", data);
             //console.log(data.allKeywords[0]);
             res.render('index', {data});
         })
@@ -40,9 +41,12 @@ app.get('/', (req,res) =>{
 
 //When html navigates to /search. using multer to get multipart form data
 app.post('/search', upload.none(), function(req, res) {
-    let query = req.body; 
-    console.log(query);
-    res.render('results', {query});
+    const allData = app.get("allData");
+    let data = {
+        allData: allData,
+        query: req.body
+    }
+    res.render('results', {data});
 
 })
 

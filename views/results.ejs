@@ -8,15 +8,25 @@
         <p>
             <b>You chose the following keywords:</b>
             <br>
-            <% for(var i=0; i < query.keywords.length; i++) { %>
-                <%- query.keywords[i]; %> ,
+            <% for(var i=0; i < data.query.keywords.length; i++) { %>
+                <%- data.query.keywords[i]; %> ,
             <% } %>
             <br><br>
             <b>You chose the following genres:</b>
             <br>
-            <% for(var i=0; i < query.genres.length; i++) { %>
-                <%- query.genres[i]; %> ,
+            <% for(var i=0; i < data.query.genres.length; i++) { %>
+                <%- data.query.genres[i]; %> ,
             <% } %>
+            <br><br>
+            <b>Example of a movie object:</b> <br>
+            Id: <%-data.allData.movies[0].id; %><br>
+            Title: <%-data.allData.movies[0].title; %> <br>
+            Overview: <%-data.allData.movies[0].overview; %> <br>
+            Tagline: <%-data.allData.movies[0].tagline; %> <br>
+            Runtime: <%-data.allData.movies[0].runtime; %> <br>
+            Homepage: <%-data.allData.movies[0].homepage; %> <br>
+            Language: <%-data.allData.movies[0].language; %> <br>
+            ReleaseDate: <%-data.allData.movies[0].releaseDate; %>
         </p>
     </body>
 </head>
