@@ -14,11 +14,11 @@ const upload = multer({dest: 'uploads/'})
 
 //File Handling 
 const fs = require('fs'); //file stream
-const csvFilePath = 'movieData/movies.csv'; //csv file path 
+const csvFilePath = 'movieData/moviesA.csv'; //csv file path 
 const csvParser = require("csv-parser") //csv-parser plug in
 
 //JS Functions
-const util = require('./util')
+const modify = require('./services/modify.js');
 
 //Home page
 app.get('/', (req,res) =>{
@@ -38,10 +38,9 @@ app.post('/search', upload.none(), function(req, res) {
         })
         .on("end", () =>{
             console.log("csv-parser success, # of movies: ", parsedData.length);
-            //Operations on the parsed data, these functions are in tools.js
-            let results = util.modifyData(parsedData, query)
-            console.log(query);
-            res.render('results', {'data': results});
+            var modifiedData = [];
+            modifiedData = modify.modifyData(parsedData);
+            console.log("data: ", modifiedData);
         })
 })
 
