@@ -1,9 +1,12 @@
-h1 {
-  font-family: 'Arima', cursive;
-  font-family: 'Kantumruy Pro', sans-serif;
+body{
   text-align: center;
+  font-family: "Audiowide", sans-serif;
+  background-color: #dce189
 }
-
-body {
-  background-color: #9EADC8;
+h1{
+  font-size:75px;
+  color: #000000
+}
+h3{
+  color: #551a8b
 }
