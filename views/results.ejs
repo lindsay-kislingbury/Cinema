@@ -16,19 +16,28 @@
             <%- searchResults.searchGenres[i] %>  ,
         <% } %> 
         <br><br>
-        <b>Best Matching Movies (Match on genre and keyword): </b><br>
+        <b>Best Matching Movies (Match on genre and keyword. Genre is ALL and keyword is ANY): </b><br>
         <table>
         <% for(var i=0; i < searchResults.bestMatches.length; i++) { %>
             <tr>
-                Id: <%-searchResults.bestMatches[i].id; %><br>
-                Title: <%-searchResults.bestMatches[i].title; %> <br>
-                Overview: <%-searchResults.bestMatches[i].overview; %> <br>
-                Tagline: <%-searchResults.bestMatches[i].tagline; %> <br>
-                Runtime: <%-searchResults.bestMatches[i].runtime; %> <br>
-                Homepage: <%-searchResults.bestMatches[i].homepage; %> <br>
-                Language: <%-searchResults.bestMatches[i].language; %> <br>
-                ReleaseDate: <%-searchResults.bestMatches[i].releaseDate; %> <br><br>
-            </tr>
+                <u>Id:</u> <%-searchResults.bestMatches[i].id; %><br>
+                <u>Title:</u> <%-searchResults.bestMatches[i].title; %> <br>
+                <u>Overview:</u> <%-searchResults.bestMatches[i].overview; %> <br>
+                <u>Tagline:</u> <%-searchResults.bestMatches[i].tagline; %> <br>
+                <u>Runtime:</u> <%-searchResults.bestMatches[i].runtime; %> <br>
+                <u>Homepage:</u> <%-searchResults.bestMatches[i].homepage; %> <br>
+                <u>Language:</u> <%-searchResults.bestMatches[i].language; %> <br>
+                <u>ReleaseDate:</u> <%-searchResults.bestMatches[i].releaseDate; %> <br>
+                <u>Genres:</u><br>
+                <% for(var j=0; j < searchResults.bestMatches[i].genres.length; j++) { %>
+                    <%- searchResults.bestMatches[i].genres[j] %>
+                <% } %> <br>
+                <u>Keywords:</u><br>
+                <% for(var j=0; j < searchResults.bestMatches[i].keywords.length; j++) { %>
+                    <%- searchResults.bestMatches[i].keywords[j] %>
+                <% } %> <br>
+                </tr>
+                <br><br>
         <% } %>
         </table>
         </p>
