@@ -40,7 +40,7 @@ function matches(data){
     let genreMatches = [];
     //ADD ANY OR ALL HERE FOR GENRE-- IF ELSE ON SEARCH TYPE
     movieSearchList.forEach(movie => {
-        if(data.query.genres.some(genre =>{
+        if(data.query.genres.every(genre =>{
             toString(genre);
             return movie.genres.includes(genre);
         }))
@@ -82,8 +82,6 @@ function matches(data){
     let exportData = {
         searchGenres: data.query.genres,
         searchKeywords: data.query.keywords,
-        genreMatches: genreMatchMovies[0],
-        keywordMatches: keywordMatchMovies[0],
         bestMatches: bestMatchMovies[0]
     }
     return exportData;
