@@ -63,12 +63,7 @@ function genreData(movies){
 }
 
 
-module.exports = {
-    exportData,
-    movieData,
-    keywordData,
-    genreData
-};
+module.exports = {exportData};
 
 
 

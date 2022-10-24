@@ -1,83 +1,6 @@
-# OUTDATED. WILL UPDATE SOON!
-
-### POST/search/
-First page: views/index.ejs
-
-* Must include  `enctype = "multipart/form-data"` in form action.
-    
-How to format the post data sent in the HTML POST request (on the home page):
-#### Search Genres:
-* `name = genre`
-* `value = {genre type}`    
-* Example: `<input type = "checkbox" name = "genre" value = "Action">`   
-#### Any or All:
-* `name = type`
-* `value = {search type}`    
-    * only accepts `value = any` or `value = all`    
-* Example: `<input type = "radio" id = "all" name = "type" value = "all">`
-
-   
-
-### Searchable Genres:   
-These are the genres that exist in the data set that we can search for:    
-
-    Adventure   
-    Animation    
-    Children    
-    Comedy    
-    Crime    
-    Documentary    
-    Drama    
-    Fantasy    
-    Film-Noir    
-    Horror    
-    IMAX    
-    Musical    
-    Mystery    
-    Romance    
-    Sci-Fi   
-    Thriller   
-    War   
-    Western   
-
-
-### GET/results/   
-Second page: views/results.ejs
-
-Example of data sent to results page on a search for Crime and Sci-Fi
-```
-{
-    movies:
-        [
-            {
-                movieId: '519'
-                title: 'RoboCop 3 (1993)'
-                genres: [
-                    0:    "Action"
-                    1:    "Crime"
-                    2:    "Drama"
-                    3:    "Sci-Fi"
-                    4:    "Thriller"
-            }, {}, {}, ...
-        ],
-    search:
-    {
-        genres: [
-            0: "Crime"
-            1: "Sci-Fi"
-        ],
-        type: "all"      
-    }
-}
-
-```
-
 ### Using EJS to Access the Data   
 
 Access this data using ejs snippets. Documentation for using ejs snippets here:
-
-
-
 Quick Reference for Tags:
 
 `<%`'Scriptlet' tag, for control-flow, no output    
@@ -91,29 +14,43 @@ Quick Reference for Tags:
 `_%>` ‘Whitespace Slurping’ ending tag, removes all whitespace after it    
 
 
-Example stub to display the genres searched and all matching movies and their genres:   
 
+### POST/search/
+First page: views/index.ejs
+
+* Must include  `enctype = "multipart/form-data"` in form action.
+* Example: `<form action = "/search" enctype = "multipart/form-data" method = "post">`
+    
+### Form Values:
+How to format the form data sent in the HTML POST request (on the home page):
+*   As an example, the form dynamically creates checkboxes with the value of each keyword in the allKeywords array passed to the index page.    
+* This is done using EJS, read the documentation here: https://ejs.co/    
+Heres a useful topic from stackoverflow on EJS:  https://stackoverflow.com/questions/10326950/render-a-variable-as-html-in-ejs
+
+### Structure of the Data   
+*This is how the data you have access to on the index page is structured:
 ```
-<body>
-    <h2>
-        List of all movies matching: 
-        <% for(var i=0; i < data.search.genre.length; i++) { %>
-                <%- data.search.genre[i] %> ,
-        <% } %>
-    </h2>
-    <br>
-    <% for(var i=0; i < data.movies.length; i++) { %>
-        <li>
-            <b> <%- data.movies[i].title %> </b> <br>
-            Genres:  
-            <% for(var j=0; j < data.movies[i].genres.length; j++) { %>
-                    <%- data.movies[i].genres[j] %> ,
-            <% } %>
-            <br><br>
-        </li>
-    <% } %>
-</body>
+data{
+    movies: 
+    id: *string 4 digit number*
+    title: *string*        
+    overview: *string description of the movie*
+    tagline: *string tagline for the movie*
+    runtime: *string time in minutes*
+    homepage: *string url*
+    language: *string*
+    releaseDate: *string date in '2014-11-05' format*    
+    genres: *array of strings*
+    keywords: *array of strings*
+    },
+    allKeywords: *array of all keywords present in the whole dataset*
+    allGenres: *array of all genres present in the dataset*
+};
 ```
+
+
+
+
 
 
 
