@@ -10,8 +10,8 @@
         <h3>Keywords:</h3> <br>
         <input type="text" id="keyword1" name="keywords"> <br><br>
         <input type="text" id="keyword2" name="keywords"> <br><br>
-        <input type="text" id="keyword3" name="keywords"> <br><br>
-        <br><br>
+        
+        <!--Checkboxes-->
     <h3>Genres:</h3> 
       <table>
         <tr>
@@ -25,6 +25,14 @@
         </tr>
         <tr>
         <% for(var i=5; i < 10; i++) { %>
+            <td>
+            <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
+            <br>
+            <td><%= data.allGenres[i] %></td>
+          </td>
+        <% } %>
+        </tr>
+        <% for(var i=10; i < 15; i++) { %>
            <td>
            <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
            <br>
@@ -32,15 +40,6 @@
           </td>
         <% } %>
         </tr>
-        <tr>
-          <% for(var i=10; i < 15; i++) { %>
-             <td>
-             <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-             <br>
-             <td><%= data.allGenres[i] %></td>
-            </td>
-          <% } %>
-          </tr>
           <tr>
             <% for(var i=15; i < 20; i++) { %>
                <td>

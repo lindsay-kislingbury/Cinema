@@ -3,10 +3,21 @@ body{
   font-family: "Audiowide", sans-serif;
   background-color: #dce189
 }
+
 h1{
   font-size:75px;
   color: #000000
 }
+
 h3{
   color: #551a8b
+}
+
+table {
+  padding-left: 400px;
+  padding-bottom: 20px;
+}
+
+td {
+  text-align: center;
 }
