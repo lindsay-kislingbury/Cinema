@@ -21,6 +21,7 @@ const csvParser = require("csv-parser") //csv-parser plug in
 const modify = require('./services/modify.js');
 const search = require('./services/search.js');
 
+//pre load movie data before loading index
 app.get('/', (req,res,next) =>{
     req.header('Content-Type', 'application/json')
     var parsedData = [];

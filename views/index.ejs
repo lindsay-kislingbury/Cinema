@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset = "UTF-8">
-    <link rel="stylesheet" type = "text/css" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100&family=Kantumruy+Pro:wght@100&display=swap" rel="stylesheet">
-</head>
+  <%- include("partials/header"); -%>
 <body>
     <h1> Welcome to Cinema! </h1>
     <p>Do you have a hard time deciding which movie to watch? If you are stuck on deciding which movie to watch with a group of friends, don't worry! Cinema allows you to search any genre you like and provides you with a list of a variety of movies in that genre selected! </p>
         <br>
     <p>
-      List of keyword choices: (only showing 10 of 9,000!)
       <form action = "/search" enctype = "multipart/form-data" method = "post">
-      <table>
-        <% for(var i=0; i < 50; i++) { %>
-           <tr>
-             <td>
-              <input type = "checkbox" name = "keywords" value = "<%=data.allKeywords[i] %>"> 
-              <td><%= data.allKeywords[i] %></td>
-           </tr>
-        <% } %>
-        </table>
+        <h3>Keywords:</h3> <br>
+        <input type="text" id="keyword1" name="keywords"> <br><br>
+        <input type="text" id="keyword2" name="keywords"> <br><br>
+        <input type="text" id="keyword3" name="keywords"> <br><br>
         <br><br>
-    List of genre choices: 
+    <h3>Genres:</h3> 
       <table>
-        <% for(var i=0; i < data.allGenres.length; i++) { %>
-           <tr>
-             <td>
-              <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-              <td><%= data.allGenres[i] %></td>
-           </tr>
+        <tr>
+        <% for(var i=0; i < 5; i++) { %>
+            <td>
+            <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
+            <br>
+            <td><%= data.allGenres[i] %></td>
+          </td>
         <% } %>
+        </tr>
+        <tr>
+        <% for(var i=5; i < 10; i++) { %>
+           <td>
+           <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
+           <br>
+           <td><%= data.allGenres[i] %></td>
+          </td>
+        <% } %>
+        </tr>
+        <tr>
+          <% for(var i=10; i < 15; i++) { %>
+             <td>
+             <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
+             <br>
+             <td><%= data.allGenres[i] %></td>
+            </td>
+          <% } %>
+          </tr>
+          <tr>
+            <% for(var i=15; i < 20; i++) { %>
+               <td>
+               <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
+               <br>
+               <td><%= data.allGenres[i] %></td>
+              </td>
+            <% } %>
+            </tr>
         </table>
         <input type="submit" value="Submit">
       </form>

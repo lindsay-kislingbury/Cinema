@@ -1,8 +1,17 @@
-const { query } = require('express');
+//const { query } = require('express');
 
 function matches(data){
-    //Fuse: Fuzzy Search
-    const Fuse = require('fuse.js');
+    //Fuse: Fuzzy Search (used only for keyword search)
+    const Fuse = require('fuse.js'); 
+    var options = { //Fuse options
+        includeScore: false,
+        isCaseSensitive: false,
+        includeMatches: false,
+        shouldSort: true,
+        findAllMatches: true,
+        threshold: 0.3,
+        keys: ['keywords'],
+    }
 
     //Searching List, includes only relevant data
     let movieSearchList = [];
@@ -13,18 +22,6 @@ function matches(data){
             genres: movie.genres
         })
     });
-
-    //fuse options
-    var options = {
-        includeScore: false,
-        isCaseSensitive: false,
-        includeMatches: false,
-        shouldSort: true,
-        findAllMatches: true,
-        threshold: 0.05,
-        keys: ['keywords'],
-    }
-
     let fuse = new Fuse(movieSearchList, options);
 
     //array of movieIds for movies matching keywords
@@ -48,31 +45,33 @@ function matches(data){
     });
     
     //array of movies that match genre and keyword 
-    //loop both ways to get unique items in each list
     let bestMatches = [];
-    for(const genre of genreMatches){
-        if(keywordMatches.includes(genre)){
-            if(!bestMatches.includes(genre)){
-                bestMatches.push(genre);
+    //Include keyword matches and genre matches if keyword matches is not empty
+    if(keywordMatches.length>0){ 
+        for(const genre of genreMatches){
+            if(keywordMatches.includes(genre)){
+                if(!bestMatches.includes(genre)){
+                    bestMatches.push(genre);
+                }
+            }
+        }
+        for(const keyword of keywordMatches){
+            if(genreMatches.includes(keyword)){
+                if(!bestMatches.includes(keyword)){
+                    bestMatches.push(keyword);
+                }
             }
         }
     }
-    for(const keyword of keywordMatches){
-        if(genreMatches.includes(keyword)){
+    else{ //Include only genre matches if keyword matches is empty
+        for(const keyword of genreMatches){
             if(!bestMatches.includes(keyword)){
                 bestMatches.push(keyword);
             }
         }
     }
 
-    genreMatchMovies= [];
-    genreMatchMovies.push(data.allData.movies.filter(movie => {
-        if(genreMatches.includes(movie.id)) return movie;
-    }))
-    keywordMatchMovies = [];
-    keywordMatchMovies.push(data.allData.movies.filter(movie => {
-        if(keywordMatches.includes(movie.id)) return movie;
-    }))
+    //filter movies into new arrays of matches
     bestMatchMovies = [];
     bestMatchMovies.push(data.allData.movies.filter(movie => {
         if(bestMatches.includes(movie.id)) return movie;

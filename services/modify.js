@@ -1,18 +1,17 @@
 //Returns modified array of movies with relevant info, better formatting
-function exportData(parsedData, query){
+function exportData(parsedData){
     let movies = movieData(parsedData);
     let allKeywords = keywordData(movies);
     let allGenres = genreData(movies)
-
     let exportData = {
         movies: movies,
         allKeywords: allKeywords,
         allGenres: allGenres
     };
-
     return exportData;
 }
 
+//modify some elements of the source data, keep only useful info and return
 function movieData(parsedData){
     var modifiedMovies = [];
     parsedData.forEach(movie => {
@@ -42,6 +41,7 @@ function movieData(parsedData){
     return modifiedMovies;
 }
 
+//Return all keywords present in the dataset
 function keywordData(movies){
     keywordArr = [];
     movies.forEach(movie => {
@@ -52,6 +52,7 @@ function keywordData(movies){
     return keywordArr;
 }
 
+//Return all genres present in the dataset
 function genreData(movies){
     genreArr = [];
     movies.forEach(movie => {
@@ -62,7 +63,7 @@ function genreData(movies){
     return genreArr;
 }
 
-
+//Export to server.js
 module.exports = {exportData};
 
 
