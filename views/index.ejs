@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("partials/header"); -%>
+  <head>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" type = "text/css" href="css/styles.css">
+</head>
+
 <body>
-    <h1> Welcome to Cinema! </h1>
-    <p>Do you have a hard time deciding which movie to watch? If you are stuck on deciding which movie to watch with a group of friends, don't worry! Cinema allows you to search any genre you like and provides you with a list of a variety of movies in that genre selected! </p>
+    <h1> Welcome to Cinema! &#128253;</h1>
+    <p>Do you have a hard time deciding which movie to watch? <br> If you are stuck on deciding which movie to watch with a group of friends, don't worry! <br> Cinema allows you to search any genre you like and provides you with a list of a variety of movies in that genre selected! </p>
         <br>
     <p>
       <form action = "/search" enctype = "multipart/form-data" method = "post">
-        <h3>Keywords:</h3> <br>
+        <h3>Keywords:</h3> 
         <input type="text" id="keyword1" name="keywords"> <br><br>
         <input type="text" id="keyword2" name="keywords"> <br><br>
         
@@ -50,7 +54,7 @@
             <% } %>
             </tr>
         </table>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="design">
       </form>
     </p>
 </body>

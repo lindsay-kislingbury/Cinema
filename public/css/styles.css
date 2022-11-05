@@ -1,7 +1,7 @@
 body{
   text-align: center;
-  font-family: "Audiowide", sans-serif;
-  background-color: #dce189
+  font-family: 'Courier New', monospace;
+  background-color: #f8e9cd;
 }
 
 h1{
@@ -13,8 +13,33 @@ h3{
   color: #551a8b
 }
 
+.design {
+  font-family: 'Courier New', monospace;
+  background-color: #F1EB9C;
+}
+
+.styled-table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table tbody tr{
+  border-bottom: 1px solid #dddddd
+}
+
+.styled-table tbody tr:nth-of-type(even){
+  background-color: #eaccca;
+}
+
+.styled-table tbody tr:last-of-type(even){
+  background-color: #d69f9c;
+}
+
 table {
-  padding-left: 400px;
+  padding-left: 380px;
   padding-bottom: 20px;
 }
 
