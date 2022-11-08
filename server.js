@@ -35,6 +35,7 @@ app.get('/', (req,res,next) =>{
             console.log("csv-parser success, # of movies: ", parsedData.length);
             //Modify data to a more useable format, remove un-needed data
             let data = modify.exportData(parsedData);
+            //console.log(parsedData);
             app.set("allData", data); //send data to next route
             res.render('index', {data}); //render index page
         })

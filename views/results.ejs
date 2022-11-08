@@ -47,17 +47,24 @@
     <ul class = "flex-results-container">
     <% for(var i=0; i < searchResults.bestMatches.length; i++) { %>
         <li class = flex-result>
-            <button type = "button" class="collapsible"><%-searchResults.bestMatches[i].title; %> <br> <%-searchResults.bestMatches[i].tagline; %></button>  
-            <div class = "content">
-                <%-searchResults.bestMatches[i].title; %> <br>
-                <%-searchResults.bestMatches[i].releaseDate; %> <br>
-                <%-searchResults.bestMatches[i].runtime; %> minutes <br>
-                <%-searchResults.bestMatches[i].tagline; %>
-                <%-searchResults.bestMatches[i].overview; %> 
-                <% for(var j=0; j < searchResults.bestMatches[i].genres.length; j++) { %>
+            <details>
+                <p>
+                <b>Release Date: </b><%-searchResults.bestMatches[i].releaseDate; %> <br>
+                <b>Original Language: </b><%-searchResults.bestMatches[i].language; %><br>
+                <b>Run Time: </b><%-searchResults.bestMatches[i].runtime; %> minutes <br>
+                <b>Overview: </b><%-searchResults.bestMatches[i].overview; %> <br>
+                <b>Genres: </b><% for(var j=0; j < searchResults.bestMatches[i].genres.length; j++) { %>
                     <%- searchResults.bestMatches[i].genres[j] %>
-                <% } %>
-            </div>   
+                <% } %> 
+                <b>Keywords: </b> <% for(var j=0; j < searchResults.bestMatches[i].keywords.length; j++) { %>
+                    <%- searchResults.bestMatches[i].keywords[j] %>
+                <% } %> 
+                </p>
+            <summary>
+                <h3><%-searchResults.bestMatches[i].title; %></h3>
+                <br><%-searchResults.bestMatches[i].tagline; %>
+            </summary>   
+            </details>
         </li>
     <% } %>
     </ul>
