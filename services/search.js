@@ -3,7 +3,6 @@
 //const { query } = require('express');
 
 function matches(data){
-
     //Put json search terms into arrays
     //genres
     var searchGenres = [];
@@ -29,7 +28,7 @@ function matches(data){
         includeMatches: false,
         shouldSort: true,
         findAllMatches: true,
-        threshold: 0.3,
+        threshold: 0.2,
         keys: ['keywords'],
     }
 
@@ -47,10 +46,12 @@ function matches(data){
     let fuse = new Fuse(movieSearchList, options);
     let keywordMatches = [];
         searchKeywords.forEach(keyword => {
-        let result = fuse.search(keyword);
-        result.forEach(r => {
-            keywordMatches.push(r.item.movieId);
-        });
+        if(keyword != ''){
+            let result = fuse.search(keyword);
+            result.forEach(r => {
+                keywordMatches.push(r.item.movieId);
+            });
+        }
     });
 
     //Create array of movieIds for movies matching genres
