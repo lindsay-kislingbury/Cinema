@@ -2,49 +2,68 @@
 <html lang="en">
 <head>
     <meta charset = "UTF-8">
+    <meta charset = "UTF-8">
     <link rel="stylesheet" type = "text/css" href="css/styles.css">
+    <script type = "text/javascript" src = "../javascript/js.js" async></script>
 </head>
-    <body>
-        <h2>Here's your matching movies!</h2><br>
-        
-        <p><b>You searched for these keywords: </b><br>
-        <% for(var i=0; i < searchResults.searchKeywords.length; i++) { %>
-            <%- searchResults.searchKeywords[i] %>  ,
-        <% } %>
-
-        <br><br>
-        <p><b>....And these genres: </b><br>
-          <% for(var i=0; i < searchResults.searchGenres.length; i++) { %>
-              <%- searchResults.searchGenres[i] %>  ,
-          <% } %> 
-        <br><br>
-
-        <b>Best Matching Movies (Match on genre and keyword. Genre is ALL and keyword is ANY): </b><br>
-            <table class ="styled-table">
-              <tbody>
-            <% for(var i=0; i < searchResults.bestMatches.length; i++) { %>
-                <tr>
-                    <b><%-searchResults.bestMatches[i].title; %></b> <br>
-                    <%-searchResults.bestMatches[i].releaseDate; %> <br>
-                    <%-searchResults.bestMatches[i].runtime; %> minutes <br>
-                    <br>
-                    <%-searchResults.bestMatches[i].overview; %> <br>
-                    <br>
-                    <%-searchResults.bestMatches[i].tagline; %> <br>
-                    <br>
-                    <% for(var j=0; j < searchResults.bestMatches[i].genres.length; j++) { %>
-                        <%- searchResults.bestMatches[i].genres[j] %>
-                    <% } %> <br>
-
-                  </tr>
-                  <br>
-            <% } %>
-            </tbody>
-            </table>
-        </p>
-    </body>
+<body>
+    <!--Beginning of Banner Container-->
+    <ul class = "flex-banner-container">
+        <li class = "flex-banner-content">
+            <h1>try these movies!</h1>
+        </li>
+    </ul>
+    <!--End of Banner Container-->
+    <!--Beginning of Details Container-->
+    <ul class = "flex-details-container">
+        <li class = "flex-details-info">
+            <p>
+                You searched for 
+                <% if (searchResults.searchKeywords.length == 0){ %> no keywords. 
+                <% } else { %> these keywords: <br> 
+                    <% for(var i=0; i < searchResults.searchKeywords.length; i++) { %>
+                        <%- searchResults.searchKeywords[i] %>  
+                    <% } %>
+                <% } %>
+            </p>
+            <p>
+                You searched for 
+                <% if (searchResults.searchGenres.length == 0){ %> no genres. 
+                <% } else { %> these genres: <br> 
+                    <% for(var i=0; i < searchResults.searchGenres.length; i++) { %>
+                        <%- searchResults.searchGenres[i] %>  
+                    <% } %>
+                <% } %>
+            </p>
+        </li>
+        <li class="flex-details-stats">
+            some stats here
+            # of movies found
+            # of movies matched on both genre and keyword
+            # of movies matched on one or the other?
+        </li>
+    </ul>
+    <!--End of Details Container-->
+    <ul class = "flex-results-container">
+    <% for(var i=0; i < searchResults.bestMatches.length; i++) { %>
+        <li class = flex-result>
+            <button type = "button" class="collapsible"><%-searchResults.bestMatches[i].title; %> <br> <%-searchResults.bestMatches[i].tagline; %></button>  
+            <div class = "content">
+                <%-searchResults.bestMatches[i].title; %> <br>
+                <%-searchResults.bestMatches[i].releaseDate; %> <br>
+                <%-searchResults.bestMatches[i].runtime; %> minutes <br>
+                <%-searchResults.bestMatches[i].tagline; %>
+                <%-searchResults.bestMatches[i].overview; %> 
+                <% for(var j=0; j < searchResults.bestMatches[i].genres.length; j++) { %>
+                    <%- searchResults.bestMatches[i].genres[j] %>
+                <% } %>
+            </div>   
+        </li>
+    <% } %>
+    </ul>
+</body>
     <button type="button" onclick="javascript:history.back()" class="design">Back</button>
-</html>
+    </html>
 
 
 

@@ -1,48 +1,206 @@
+/*Styles used on both pages*/
+
 body{
+  font-family: 'Source Code Pro', monospace;
+  background-color: #FFF3DA;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1{ /*Used for banner title*/
+  font-size: 35px;
+  line-height: 35px;
+}
+
+h2{ /*Used for headings within the page*/
+  font-size: 22px;
+}
+
+.design { /*Styled submit button*/
+  font-family: 'Source Code Pro', monospace;
+  color: black;
+  background-color: #ccc;
+}
+
+.flex-banner-container{/*Top level container for banner*/
+  background: #AA4A44;
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+}
+
+.flex-banner-content{/*Container for banner content. child of banner-container*/
+  flex: 1 1 100%;
+  text-decoration: none;
+  display: block;
   text-align: center;
-  font-family: 'Courier New', monospace;
-  background-color: #f8e9cd;
+  padding: 1em;
+  color:#FFF3DA;
 }
 
-h1{
-  font-size:75px;
-  color: #000000
+/* Index page styles */
+
+.flex-search-container{/*Top level container for index page under the banner*/
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: row;
+  flex-wrap: row wrap;
+  align-items: stretch;
+  align-content: center;
+  justify-content:center;
+  gap: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
 }
 
-h3{
-  color: #551a8b
-}
-
-.design {
-  font-family: 'Courier New', monospace;
-  background-color: #F1EB9C;
-}
-
-.styled-table{
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.styled-table tbody tr{
-  border-bottom: 1px solid #dddddd
-}
-
-.styled-table tbody tr:nth-of-type(even){
-  background-color: #eaccca;
-}
-
-.styled-table tbody tr:last-of-type(even){
-  background-color: #d69f9c;
-}
-
-table {
-  padding-left: 380px;
-  padding-bottom: 20px;
-}
-
-td {
+.flex-search-description{/*Container for left side column. Child of search-container*/
+  flex: 1 1 50%;
+  wrap: wrap;
+  align-content: flex-start;
+  background:#ccc;
+  padding: 5px;
+  color:black;
+  font-size: 20px;
   text-align: center;
+}
+
+.flex-search-searchbox{/*Container for right side column. Child of search-container*/
+  flex: 1 1 50%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  background:rgb(187, 116, 116);
+  color:black;
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.flex-search-genres{/*Container for genre inputs. Child of search-searchbox*/
+  display: flex;
+  flex: 1 1 100%;
+  flex-flow: row wrap;
+  justify-content: left;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.flex-search-genre-item{/*Container for each individual genre checkbox. Child of search-genres*/
+  flex: 0  0 50%;
+  width: 280px;
+  display: inline-flex;
+  justify-content: left;
+  align-content: left;
+}
+
+.flex-search-keywords{/*Container for keyword inputs. Child of search-searchbox*/
+  display: flex;
+  flex: 1 1 100%;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  list-style: none;
+  padding-bottom: 8px;
+}
+
+/*Results Page Styles*/
+
+.flex-details-container{
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: row;
+  flex-wrap: row wrap;
+  align-items: stretch;
+  align-content: center;
+  justify-content:center;
+  gap: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+}
+
+.flex-details-info{/*Container for left side column. Child of details-container*/
+  flex: 1 1 50%;
+  wrap: wrap;
+  align-content: flex-start;
+  background:#ccc;
+  padding: 5px;
+  color:black;
+  font-size: 20px;
+  text-align: center;
+  list-style: none;
+}
+
+.flex-details-stats{/*Container for right side column. Child of details-container*/
+  flex: 1 1 50%;
+  wrap: wrap;
+  align-content: flex-start;
+  background:rgb(187, 116, 116);
+  padding: 5px;
+  color:black;
+  font-size: 20px;
+  text-align: center;
+  list-style: none;
+}
+
+.flex-results-container{
+  display: flex;
+  flex: 1 1 100%;
+  flex-flow: row wrap;
+  justify-content:center;
+  list-style: none;
+}
+
+.flex-result{
+  flex: 0  0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-content: left;
+ 
+}
+
+
+
+
+
+
+.collapsible{/*The actual button*/
+  background-color: #AA4A44;
+  color: #000000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: medium solid transparent;
+  border-radius: 10px;
+  text-align: left;
+  outline: none;
+  font-size: 15;
+  font-family: 'Source Code Pro', monospace;
+}
+
+/*What happens when the cursor hovers on the button*/
+.active, .collapsible:hover {
+  background-color: #ccc;
+  
+}
+
+/*The content that is revealed on click*/
+.content {
+  padding: 0 18px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  border-top-left-radius: 10;
+  border-top-right-radius: 10;
+  border: transparent;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #ccc;
+  transition: max-height 0.25s ease out;
 }
