@@ -47,17 +47,14 @@ function matches(data){
     let fuse = new Fuse(movieSearchList, options);
     let keywordMatches = [];
         searchKeywords.forEach(keyword => {
-            console.log("keyword: ",keyword);
         let result = fuse.search(keyword);
         result.forEach(r => {
             keywordMatches.push(r.item.movieId);
         });
     });
 
-    //Creat array of movieIds for movies matching genres
+    //Create array of movieIds for movies matching genres
     let genreMatches = [];
-    console.log("search genres: ", searchGenres);
-    //ADD ANY OR ALL GOES HERE FOR GENRE-- IF ELSE ON SEARCH TYPE
     movieSearchList.forEach(movie => {
         if(searchGenres.every(genre =>{
             return movie.genres.includes(genre);
@@ -67,7 +64,6 @@ function matches(data){
     
     //Create array of movies that match both genre and keyword 
     let bestMatches = [];
-    console.log(genreMatches);
     if(genreMatches.length > 0){ //if genres are searched
         for(const genre of genreMatches){ //only add movies that match genre and keyword
             if(keywordMatches.includes(genre)){
@@ -102,11 +98,9 @@ function matches(data){
         }
     }
 
-
     //Filter movie objects into new arrays of matching movies
     bestMatchMovies = [];
     bestMatchMovies.push(data.allData.movies.filter(movie => {
-        //console.log("movie id: ", movie.id);
         if(bestMatches.includes(movie.id)) return movie;
     }))
 

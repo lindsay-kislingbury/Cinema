@@ -6,57 +6,50 @@
 </head>
 
 <body>
-    <h1> Welcome to Cinema! &#128253;</h1>
-    <p>Do you have a hard time deciding which movie to watch? <br> If you are stuck on deciding which movie to watch with a group of friends, don't worry! <br> Cinema allows you to search any genre you like and provides you with a list of a variety of movies in that genre selected! </p>
-        <br>
-    <p>
+  <!--Beginning of Banner Container-->
+  <ul class = "flex-banner-container">
+    <li class = "flex-banner-content">
+      <h1>struggle finding a movie to watch?</h1>
+    </li>
+  </ul>
+  <!--End of Banner Container-->
+  <!--Beginning of Search Container-->
+  <ul class = "flex-search-container">
+    <!--Beginning of Left-Side Description Container-->
+    <li class = flex-search-description>
+      <h1>&rarr;</h1>
+      <p><b>enter your search here!</b></p>
+        <p>pick any number of genres
+        Add a keyword or two to narrow your search.
+      </p><br>
+      <p>some more words, info about our project etc.</p>
+    </li>
+    <!--End of Left-Side Description Container-->
+    
+    <!--Beginning of Right-Side Search Box Container-->
+    <li class = "flex-search-searchbox">
       <form action = "/search" enctype = "multipart/form-data" method = "post">
-        <h3>Keywords:</h3> 
-        <input type="text" id="keyword1" name="keywords"> <br><br>
-        <input type="text" id="keyword2" name="keywords"> <br><br>
-        
-        <!--Checkboxes-->
-    <h3>Genres:</h3> 
-      <table>
-        <tr>
-        <% for(var i=0; i < 5; i++) { %>
-            <td>
-            <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-            <br>
-            <td><%= data.allGenres[i] %></td>
-          </td>
-        <% } %>
-        </tr>
-        <tr>
-        <% for(var i=5; i < 10; i++) { %>
-            <td>
-            <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-            <br>
-            <td><%= data.allGenres[i] %></td>
-          </td>
-        <% } %>
-        </tr>
-        <% for(var i=10; i < 15; i++) { %>
-           <td>
-           <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-           <br>
-           <td><%= data.allGenres[i] %></td>
-          </td>
-        <% } %>
-        </tr>
-          <tr>
-            <% for(var i=15; i < 20; i++) { %>
-               <td>
-               <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-               <br>
-               <td><%= data.allGenres[i] %></td>
-              </td>
-            <% } %>
-            </tr>
-        </table>
-        <input type="submit" value="Submit" class="design">
+        <h2>genres:</h2> 
+        <ul class = "flex-search-genres">
+            <% for(var i=0; i < data.allGenres.length; i++) { %>
+                <li class = flex-search-genre-item>
+                  <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
+                  <%= data.allGenres[i] %>
+                </li>
+            <% } %> 
+        </ul>
+        <h2>keywords:</h2>
+        <li class = "flex-search-keywords">
+          <input type="text" id="keyword1" name="keywords"> 
+          <input type="text" id="keyword1" name="keywords"> 
+        </li>
+        <input type="submit" class = "design" value="Submit">
       </form>
-    </p>
+    </li>
+  </ul>
+  <!--End of Right-Side Search Box Container-->
+
+
 </body>
 </html>
 
