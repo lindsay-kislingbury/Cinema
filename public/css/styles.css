@@ -118,8 +118,7 @@ h3{/*Used for movie titles on results page*/
 }
 
 /*Results Page Styles*/
-
-.flex-details-container{
+.flex-details-container{/*Container for details section at the top*/
   display: flex;
   flex: 1 1 100%;
   flex-direction: row;
@@ -160,21 +159,19 @@ h3{/*Used for movie titles on results page*/
   list-style: none;
 }
 
-.flex-results-container{
+.flex-results-container{ /*Container for list of results*/
   display: flex;
-  flex: 1 1 100%;
+  flex: 0 0 100%;
   flex-flow: row wrap;
   justify-content:center;
   list-style: none;
 }
 
-.flex-result{
+.flex-result{ /*Flex box for each individual movie*/
   flex: 0  0 100%;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: left;
-  align-content: left;
- 
 }
 
 /*Collapsible Items Formatting*/
@@ -182,24 +179,27 @@ details{
   font: 14px;
   width: 100%;
   padding: 4px;
-  border-radius: 2px;
 }
 
 details > summary{
   padding: 2px 6px;
   width: 100%;
-  background-color: #AA4A44;
-  border: none;
+  background-color: rgb(187, 116, 116);
+  border: 2px solid #AA4A44;
+  border-bottom: none;
   cursor: pointer;
+  border-radius: 2px;
 }
 
 details > p{
   border-radius: 0 0 10px 10px;
   background-color:#ccc;
+  border: 2px solid #AA4A44;
+  border-top: none;
   padding: 2px 6px;
   margin: 0;
 }
 
 details[open] > summary{
-  background-color:#ccc;
+  background-color:#AA4A44;
 }
