@@ -18,6 +18,7 @@
     <!--Beginning of Left-Side Description Container-->
     <li class = flex-search-description>
       <h1>&rarr;</h1>
+      <img src="images/cinemalogo.PNG" alt ="cinelogo" height="200" width="350">
       <p><b>Enter your search here!</b></p>
       <p>some info about the project, etc.</p>
     </li>
@@ -26,7 +27,7 @@
     <!--Beginning of Right-Side Search Box Container-->
     <li class = "flex-search-searchbox">
       <form action = "/search" enctype = "multipart/form-data" method = "post">
-        <h2>genres:</h2> 
+        <h2>Genres:</h2> 
         <ul class = "flex-search-genres">
             <% for(var i=0; i < data.allGenres.length; i++) { %>
                 <li class = flex-search-genre-item>
@@ -35,7 +36,7 @@
                 </li>
             <% } %> 
         </ul>
-        <h2>keywords:</h2>
+        <h2>Keywords:</h2>
         <li class = "flex-search-keywords">
           <input type="text" id="keyword1" name="keywords"> 
           <input type="text" id="keyword1" name="keywords"> 

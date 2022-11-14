@@ -101,11 +101,11 @@ h3{/*Used for movie titles on results page*/
 }
 
 .flex-search-genre-item{/*Container for each individual genre checkbox. Child of search-genres*/
-  flex: 0  0 50%;
+  flex: 0 0 50%;
   width: 280px;
   display: inline-flex;
   justify-content: left;
-  align-content: left;
+  align-items: left;
 }
 
 .flex-search-keywords{/*Container for keyword inputs. Child of search-searchbox*/
@@ -125,7 +125,7 @@ h3{/*Used for movie titles on results page*/
   flex-wrap: row wrap;
   align-items: stretch;
   align-content: center;
-  justify-content:center;
+  justify-content: center;
   gap: 10px;
   padding-bottom: 10px;
   margin: 0;
