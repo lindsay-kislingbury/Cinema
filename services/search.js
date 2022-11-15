@@ -29,7 +29,7 @@ function matches(data){
         shouldSort: true,
         findAllMatches: true,
         threshold: 0.2,
-        keys: ['keywords'],
+        keys: ['keyword'],
     }
 
     //Searching List, includes only relevant data
