@@ -77,7 +77,8 @@ h3{/*Used for movie titles on results page*/
   border-radius: 14px;
 }
 
-.flex-search-searchbox{/*Container for right side column. Child of search-container*/
+/*Container for right side column. Child of search-container*/
+.flex-search-searchbox{
   flex: 1 1 50%;
   flex-wrap: wrap;
   flex-direction: row;
@@ -95,20 +96,24 @@ h3{/*Used for movie titles on results page*/
   display: flex;
   flex: 1 1 100%;
   flex-flow: row wrap;
-  justify-content: left;
+/*   justify-content: left; */
   align-items: flex-start;
   list-style: none;
+  justify-content: space-evenly;
 }
 
-.flex-search-genre-item{/*Container for each individual genre checkbox. Child of search-genres*/
+/*Container for each individual genre checkbox. Child of search-genres*/
+.flex-search-genre-item{/
   flex: 0 0 50%;
   width: 280px;
   display: inline-flex;
   justify-content: left;
   align-items: left;
+  padding-right: 5px;
 }
 
-.flex-search-keywords{/*Container for keyword inputs. Child of search-searchbox*/
+/*Container for keyword inputs. Child of search-searchbox*/
+.flex-search-keywords{
   display: flex;
   flex: 1 1 100%;
   flex-flow: row wrap;
@@ -118,7 +123,8 @@ h3{/*Used for movie titles on results page*/
 }
 
 /*Results Page Styles*/
-.flex-details-container{/*Container for details section at the top*/
+/*Container for details section at the top*/
+.flex-details-container{
   display: flex;
   flex: 1 1 100%;
   flex-direction: row;
@@ -133,7 +139,8 @@ h3{/*Used for movie titles on results page*/
   list-style: none;
 }
 
-.flex-details-info{/*Container for left side column. Child of details-container*/
+/*Container for left side column. Child of details-container*/
+.flex-details-info{
   flex: 1 1 50%;
   wrap: wrap;
   align-content: center;
@@ -146,7 +153,8 @@ h3{/*Used for movie titles on results page*/
   list-style: none;
 }
 
-.flex-details-stats{/*Container for right side column. Child of details-container*/
+/*Container for right side column. Child of details-container*/
+.flex-details-stats{
   flex: 1 1 50%;
   wrap: wrap;
   align-content: center;
@@ -159,15 +167,18 @@ h3{/*Used for movie titles on results page*/
   list-style: none;
 }
 
-.flex-results-container{ /*Container for list of results*/
+/*Container for list of results*/
+.flex-results-container{ 
   display: flex;
   flex: 0 0 100%;
   flex-flow: row wrap;
   justify-content:center;
   list-style: none;
+  padding-right: 40px;
 }
 
-.flex-result{ /*Flex box for each individual movie*/
+/*Flex box for each individual movie*/
+.flex-result{ 
   flex: 0  0 100%;
   display: inline-flex;
   flex-wrap: wrap;
@@ -178,11 +189,10 @@ h3{/*Used for movie titles on results page*/
 details{
   font: 14px;
   width: 100%;
-  padding: 4px;
+  padding: 5px;
 }
 
 details > summary{
-  padding: 2px 6px;
   width: 100%;
   background-color: rgb(187, 116, 116);
   border: 2px solid #AA4A44;

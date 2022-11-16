@@ -45,7 +45,7 @@
     </ul>
     <!--End of Details Container-->
     <ul class = "flex-results-container">
-    <% for(var i=0; i < searchResults.bestMatches.length; i++) { %>
+    <% for(var i=0; (i < 30) || (!searchResults.bestMatches[i]); i++) { %>
         <li class = flex-result>
             <details>
                 <p>
@@ -61,7 +61,7 @@
                 <% } %> 
                 </p>
             <summary>
-                <h3><%-searchResults.bestMatches[i].title; %></h3>
+                <h3> <%-searchResults.bestMatches[i].title; %> </h3>
                 <br><%-searchResults.bestMatches[i].tagline; %>
             </summary>   
             </details>
