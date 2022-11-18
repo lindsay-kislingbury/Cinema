@@ -2,7 +2,7 @@
 
 body{
   font-family: 'Source Code Pro', monospace;
-  background-color: #FFF3DA;
+  background-color: #f2ddb0;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -69,7 +69,7 @@ h3{/*Used for movie titles on results page*/
   flex: 1 1 50%;
   wrap: wrap;
   align-content: flex-start;
-  background:#ccc;
+  background:#c2cedb;
   padding: 5px;
   color:black;
   font-size: 20px;
