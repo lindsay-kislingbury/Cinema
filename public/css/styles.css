@@ -31,7 +31,7 @@ h3{/*Used for movie titles on results page*/
 }
 
 .flex-banner-container{/*Top level container for banner*/
-  background: #AA4A44;
+  background: #2f2f2f;
   display: flex;
   flex: 1 1 100%;
   justify-content: center;
@@ -39,10 +39,20 @@ h3{/*Used for movie titles on results page*/
   margin: 0;
 }
 
+.flex-banner-logo{
+  flex: 1 1 100%;
+  justify-content: left;
+  list-style: none;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
 .flex-banner-content{/*Container for banner content. child of banner-container*/
   flex: 1 1 100%;
   text-decoration: none;
   display: block;
+  align-self: flex-end;
   text-align: center;
   padding: 1em;
   color:#FFF3DA;
@@ -54,7 +64,7 @@ h3{/*Used for movie titles on results page*/
   display: flex;
   flex: 1 1 100%;
   flex-direction: row;
-  flex-wrap: row wrap;
+  flex-wrap: column wrap;
   align-items: center;
   align-content: center;
   justify-content:center;
@@ -65,23 +75,19 @@ h3{/*Used for movie titles on results page*/
   list-style: none;
 }
 
-.flex-search-description{/*Container for left side column. Child of search-container*/
+.flex-search-logo{
   flex: 1 1 50%;
-  wrap: wrap;
-  align-content: flex-start;
-  background:#c2cedb;
-  padding: 5px;
-  color:black;
-  font-size: 20px;
-  text-align: center;
-  border-radius: 14px;
+  flex-wrap: column wrap;
+  justify-content: left;
+  align-content: left;
+  background: #FFF3DA;
 }
 
 /*Container for right side column. Child of search-container*/
 .flex-search-searchbox{
-  flex: 1 1 50%;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex: 1 1 100%;
+  flex-wrap: column-wrap;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
   background:rgb(187, 116, 116);
@@ -99,13 +105,19 @@ h3{/*Used for movie titles on results page*/
 /*   justify-content: left; */
   align-items: flex-start;
   list-style: none;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.flex-search-genre-column{
+  display: flex;
+  flex: 0 0 50%;
+  jusfify-content: center;
 }
 
 /*Container for each individual genre checkbox. Child of search-genres*/
 .flex-search-genre-item{/
   flex: 0 0 50%;
-  width: 280px;
+  width: 200px;
   display: inline-flex;
   justify-content: left;
   align-items: left;

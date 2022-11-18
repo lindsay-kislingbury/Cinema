@@ -8,6 +8,9 @@
 <body>
   <!--Beginning of Banner Container-->
   <ul class = "flex-banner-container">
+    <li class = ".flex-search-logo">
+    <img src="images/cinema_logo.png" alt ="cinelogo"  width="200">
+    </li>
     <li class = "flex-banner-content">
       <h1>Struggle finding a movie to watch?</h1>
     </li>
@@ -15,26 +18,19 @@
   <!--End of Banner Container-->
   <!--Beginning of Search Container-->
   <ul class = "flex-search-container">
-    <!--Beginning of Left-Side Description Container-->
-    <li class = flex-search-description>
-      <h1><img src="images/cinemalogo.PNG" alt ="cinelogo" height="500" width="500"></h1>
-      
-      <p><b>Enter your search here! &rarr;</b></p>
-      <p>some info about the project, etc.</p>
-    </li>
-    <!--End of Left-Side Description Container-->
-    
-    <!--Beginning of Right-Side Search Box Container-->
+
     <li class = "flex-search-searchbox">
       <form action = "/search" enctype = "multipart/form-data" method = "post">
         <h2>Genres:</h2> 
         <ul class = "flex-search-genres">
+          <li class = "flex-search-column">
             <% for(var i=0; i <data.allGenres.length; i++) { %>
                 <li class = flex-search-genre-item>
                   <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
                   <%= data.allGenres[i] %>
                 </li>
             <% } %> 
+            </li>
         </ul>
         <h2>Keyword:</h2>
         <li class = "flex-search-keywords">
