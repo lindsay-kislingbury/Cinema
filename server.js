@@ -21,9 +21,9 @@ const csvParser = require("csv-parser") //csv-parser plug in
 const modify = require('./services/modify.js');
 const search = require('./services/search.js');
 
+
 //pre load movie data before loading index
-app.get('/', (req, res, next) => {
-  req.header('Content-Type', 'application/json')
+app.get('/', (req, res) => {
   var parsedData = [];
   //Parse csv data to array of objects
   fs.createReadStream(csvFilePath)
@@ -33,25 +33,38 @@ app.get('/', (req, res, next) => {
     })
     .on("end", () => {
       //Modify data to a more useable format, remove un-needed data
-      let data = modify.exportData(parsedData);
-      //console.log(parsedData);
-      app.set("allData", data); //send data to next route
+      let data = modify.indexData(parsedData);
       res.render('index', { data }); //render index page
     })
 })
+
 
 //Using multer to get multipart form data
 app.post('/search', upload.none(), function(req, res) {
   req.header('Content-Type', 'application/json')
   let query = req.body;
-  const allData = app.get("allData"); //get data from last route
-  let data = { //package movie data with request body 
-    allData: allData,
-    query: query
-  }
-  let searchResults = search.matches(data);
-  res.render('results', { searchResults });
+  var parsedData = [];
+  //Parse csv data to array of objects
+  fs.createReadStream(csvFilePath)
+    .pipe(csvParser())
+    .on('data', (data) => {
+      parsedData.push(data);
+    })
+    .on("end", () => {
+      //Modify data to a more useable format, remove un-needed data
+      let data = modify.resultsData(parsedData);
+      let searchResults = search.matches(query, data);
+      console.log("match found: ", searchResults.matchFound);
+      console.log("genre match found: ", searchResults.genreMatch);
+      console.log("keyword match found: ", searchResults.keywordMatch);
+      res.render('results', { searchResults }); //render index page
+    })
 })
+
+app.get('/about', (req, res) => {
+  res.render('about');
+})
+
 
 //port 3000
 app.listen(port, () => {

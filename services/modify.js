@@ -1,10 +1,14 @@
 //Returns modified array of movies with relevant info, better formatting
-function exportData(parsedData){
+function resultsData(parsedData){
+    let movies = movieData(parsedData);
+    return movies;
+}
+
+function indexData(parsedData){
     let movies = movieData(parsedData);
     let allKeywords = keywordData(movies);
     let allGenres = genreData(movies)
     let exportData = {
-        movies: movies,
         allKeywords: allKeywords,
         allGenres: allGenres
     };
@@ -17,6 +21,8 @@ function movieData(parsedData){
     parsedData.forEach(movie => {
         var movieInfo = {};
         //Keep just the useful info
+        movieInfo.keywordMatch = false;
+        movieInfo.genreMatch = false;
         movieInfo.id = movie.id;
         movieInfo.title = movie.title;
         movieInfo.overview = movie.overview;
@@ -36,7 +42,6 @@ function movieData(parsedData){
         keywordJson.forEach(keyword => {keywordArr.push(keyword.name);});
         keywordArr.push(movieInfo.language);
         movieInfo.keywords = keywordArr;
-
         modifiedMovies.push(movieInfo);
     });
     return modifiedMovies;
@@ -107,7 +112,7 @@ function genreData(movies){
 }
 
 //Export to server.js
-module.exports = {exportData};
+module.exports = {indexData, resultsData};
 
 
 

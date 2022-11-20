@@ -1,137 +1,161 @@
 /*Styles used on both pages*/
 
-body{
-  font-family: 'Source Code Pro', monospace;
-  background-color: #f2ddb0;
-  width: 100%;
+*{
   margin: 0;
   padding: 0;
+  font-family: 'Source Code Pro', monospace;
 }
 
-h1{ /*Used for banner title*/
+body{
+  background-color: #f2ddb0;
+}
+
+a:link {
+  color: #f2ddb0;
+  background-color: transparent;
+  text-decoration: none;
+}
+  
+a:visited {
+  color: #f2ddb0;
+  background-color: transparent;
+  text-decoration: none;
+}
+  
+a:hover {
+  color: rgb(63, 63, 63);
+  background-color: transparent;
+  text-decoration: underline;
+}
+  
+a:active {
+  color: #f2ddb0;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 50px;
+  box-shadow: 0 1px 8px #ddd;
+  background-color: rgb(63, 63, 63);
+}
+
+
+#nav-logo {
+  margin-right: auto;
+  font-size: 1.5em;
+}
+
+header li {
+  align-self: flex-start;
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+header a {
+  font-size: 25px;
+  text-decoration: none;
+  color: #f2ddb0;
+  transition: all 0.3s ease 0s;
+}
+
+header a:hover {
+  color: #AA4A44;
+}
+
+h2{
   font-size: 35px;
-  line-height: 35px;
 }
 
-h2{ /*Used for headings*/
-  font-size: 22px;
-}
 
 h3{/*Used for movie titles on results page*/
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 0px;
   display: inline;
-
 }
 
-.design { /*Styled submit button*/
-  font-family: 'Source Code Pro', monospace;
-  color: black;
-  background-color: #ccc;
-}
-
-.flex-banner-container{/*Top level container for banner*/
-  background: #2f2f2f;
-  display: flex;
-  flex: 1 1 100%;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-}
-
-.flex-banner-logo{
-  flex: 1 1 100%;
-  justify-content: left;
-  list-style: none;
-  align-self: flex-start;
-  margin: 0;
-  padding: 0;
-}
-
-.flex-banner-content{/*Container for banner content. child of banner-container*/
-  flex: 1 1 100%;
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: rgb(63, 63, 63);
+  border: none;
+  border-radius: 10px;
+  color: #f2ddb0;
+  padding: 16px 32px;
+  font-size: 35px;
   text-decoration: none;
-  display: block;
-  align-self: flex-end;
-  text-align: center;
-  padding: 1em;
-  color:#FFF3DA;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-/* Index page styles */
-
-.flex-search-container{/*Top level container for index page under the banner*/
+.flex-searchbox{
   display: flex;
   flex: 1 1 100%;
-  flex-direction: row;
-  flex-wrap: column wrap;
-  align-items: center;
-  align-content: center;
-  justify-content:center;
-  gap: 10px;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  color: rgb(27, 27, 27);
+  background-color: #b65c55;
+  padding-top: 15px;
+  padding-right: 40px;
+  padding-left: 110px;
   padding-bottom: 10px;
-  margin: 0;
-  padding: 5px;
-  list-style: none;
-}
-
-.flex-search-logo{
-  flex: 1 1 50%;
-  flex-wrap: column wrap;
-  justify-content: left;
-  align-content: left;
-  background: #FFF3DA;
-}
-
-/*Container for right side column. Child of search-container*/
-.flex-search-searchbox{
-  flex: 1 1 100%;
-  flex-wrap: column-wrap;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  background:rgb(187, 116, 116);
-  color:black;
-  font-size: 20px;
   text-align: center;
+  font-size: 28px;
+  font-weight: bolder;
   border-radius: 14px;
-  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  list-style-type: none;
 }
 
-.flex-search-genres{/*Container for genre inputs. Child of search-searchbox*/
-  display: flex;
-  flex: 1 1 100%;
-  flex-flow: row wrap;
-/*   justify-content: left; */
-  align-items: flex-start;
-  list-style: none;
-  justify-content: center;
-}
-
-.flex-search-genre-column{
-  display: flex;
-  flex: 0 0 50%;
-  jusfify-content: center;
-}
-
-/*Container for each individual genre checkbox. Child of search-genres*/
-.flex-search-genre-item{/
-  flex: 0 0 50%;
-  width: 200px;
+.flex-search-genre{
   display: inline-flex;
-  justify-content: left;
-  align-items: left;
-  padding-right: 5px;
+  width: 180px;
 }
 
-/*Container for keyword inputs. Child of search-searchbox*/
-.flex-search-keywords{
-  display: flex;
-  flex: 1 1 100%;
+.flex-aboutbox-container{
+  display: flex;  
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-content: center;
+  padding-top: 10px;
+  margin: 10px;
   list-style: none;
-  padding-bottom: 8px;
+  gap: 5px;
+}
+
+.flex-aboutbox-top{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 30px;
+  padding: 10px;
+  background: #b65c55;
+  text-align: center;
+  justify-content: center;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+.flex-aboutbox-bottom{
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 28px;
+  padding: 10px;
+  background:rgb(155, 146, 143);
+  justify-content: space-around;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 14px;
+  list-style: none;
 }
 
 /*Results Page Styles*/
@@ -139,45 +163,23 @@ h3{/*Used for movie titles on results page*/
 .flex-details-container{
   display: flex;
   flex: 1 1 100%;
-  flex-direction: row;
-  flex-wrap: row wrap;
-  align-items: stretch;
-  align-content: center;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
-  gap: 10px;
-  padding-bottom: 10px;
-  margin: 0;
-  padding: 5px;
+  align-content: center;
+  text-align: center;
+  color: rgb(46, 46, 46);
+  background-color: rgb(155, 146, 143);
+  font-size: 25px;
+  font-weight: bolder;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+  border-radius: 14px;
   list-style: none;
 }
 
-/*Container for left side column. Child of details-container*/
-.flex-details-info{
-  flex: 1 1 50%;
-  wrap: wrap;
-  align-content: center;
-  background:#ccc;
-  padding: 5px;
-  border-radius: 14px;
-  color:black;
-  font-size: 20px;
-  text-align: center;
-  list-style: none;
-}
-
-/*Container for right side column. Child of details-container*/
-.flex-details-stats{
-  flex: 1 1 50%;
-  wrap: wrap;
-  align-content: center;
-  background:rgb(187, 116, 116);
-  padding: 5px;
-  border-radius: 14px;
-  color:black;
-  font-size: 20px;
-  text-align: center;
-  list-style: none;
-}
 
 /*Container for list of results*/
 .flex-results-container{ 
@@ -187,6 +189,7 @@ h3{/*Used for movie titles on results page*/
   justify-content:center;
   list-style: none;
   padding-right: 40px;
+  padding-left: 40px;
 }
 
 /*Flex box for each individual movie*/
@@ -199,14 +202,14 @@ h3{/*Used for movie titles on results page*/
 
 /*Collapsible Items Formatting*/
 details{
-  font: 14px;
   width: 100%;
   padding: 5px;
 }
 
 details > summary{
   width: 100%;
-  background-color: rgb(187, 116, 116);
+  background-color:#AA4A44;
+  font-size: 25px;
   border: 2px solid #AA4A44;
   border-bottom: none;
   cursor: pointer;
@@ -215,13 +218,16 @@ details > summary{
 
 details > p{
   border-radius: 0 0 10px 10px;
-  background-color:#ccc;
-  border: 2px solid #AA4A44;
+  background-color:rgb(155, 146, 143);
+  color:rgb(32, 32, 32);
+  font-size: 20px;
+  border: 2px solid rgb(46, 46, 46);
   border-top: none;
   padding: 2px 6px;
   margin: 0;
 }
 
 details[open] > summary{
-  background-color:#AA4A44;
+  background-color:rgb(46, 46, 46);
+  color: #ccc;
 }

@@ -3,46 +3,32 @@
   <head>
     <meta charset = "UTF-8">
     <link rel="stylesheet" type = "text/css" href="css/styles.css">
-</head>
-
-<body>
-  <!--Beginning of Banner Container-->
-  <ul class = "flex-banner-container">
-    <li class = ".flex-search-logo">
-    <img src="images/cinema_logo.png" alt ="cinelogo"  width="200">
-    </li>
-    <li class = "flex-banner-content">
-      <h1>Struggle finding a movie to watch?</h1>
-    </li>
-  </ul>
-  <!--End of Banner Container-->
-  <!--Beginning of Search Container-->
-  <ul class = "flex-search-container">
-
-    <li class = "flex-search-searchbox">
+  </head>
+  <header>
+    <%- include('./partials/header.ejs'); %>
+  </header>
+  <body>
+    <ul class = "flex-searchbox">
       <form action = "/search" enctype = "multipart/form-data" method = "post">
-        <h2>Genres:</h2> 
-        <ul class = "flex-search-genres">
-          <li class = "flex-search-column">
-            <% for(var i=0; i <data.allGenres.length; i++) { %>
-                <li class = flex-search-genre-item>
-                  <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>"> 
-                  <%= data.allGenres[i] %>
-                </li>
-            <% } %> 
+        <h2>Choose your genres:</h2> </br>
+          <% for(var i=1; i <data.allGenres.length-1; i++) { %>    
+            <li class="flex-search-genre">
+              <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>">
+              <%= data.allGenres[i] %>
+              <% if (i % 5 == 0) { %> </br> <% } %>
             </li>
-        </ul>
-        <h2>Keyword:</h2>
-        <li class = "flex-search-keywords">
-          <input type="text" id="keyword1" name="keywords"> 
-        </li>
-        <input type="submit" class = "design" value="Submit">
+          <% } %> 
+          <br> 
+          <p style="font-size=20px;">
+            <input type = "radio" name = "genreChoice" value = "all" checked> all selected genres  <br>
+            <input type = "radio" name = "genreChoice" value = "any"> any of the selected genres 
+          </p>
+        <br>
+        <h2>Add a keyword:</h2> 
+        <input style="font-size: 22pt" type ="text" id="keyword1" name="keywords"> </br><br>
+        <input type="submit" value="Find Movies!">
       </form>
-    </li>
-  </ul>
-  <!--End of Right-Side Search Box Container-->
-
-
-</body>
+    </ul>
+  </body>
 </html>
 
