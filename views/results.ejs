@@ -18,7 +18,7 @@
 
                 <% if (searchResults.searchGenres.length > 0) { %>
                     <% for(var i=0; i < searchResults.searchGenres.length; i++) { %>
-                        <% if(i != searchResults.searchGenres.length-1) { %><%- searchResults.searchGenres[i]%>,
+                        <% if(i < searchResults.searchGenres.length-2) { %><%- searchResults.searchGenres[i]%>,
                         <% } else { %> <%- searchResults.searchGenres[i]%> <% } %>
                         <% if(i == searchResults.searchGenres.length-2) { %> 
                             <% if(searchResults.genreChoice == "any") { %> or <% } %>
