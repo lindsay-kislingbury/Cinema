@@ -11,7 +11,7 @@
     <ul class = "flex-searchbox">
       <form action = "/search" enctype = "multipart/form-data" method = "post">
         <h2>Choose your genres:</h2> </br>
-          <% for(var i=1; i <data.allGenres.length-1; i++) { %>    
+          <% for(var i=0; i <data.allGenres.length; i++) { %>    
             <li class="flex-search-genre">
               <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>">
               <%= data.allGenres[i] %>

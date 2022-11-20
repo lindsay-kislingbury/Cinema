@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
     .on("end", () => {
       //Modify data to a more useable format, remove un-needed data
       let data = modify.indexData(parsedData);
+      console.log(data.allGenres);
       res.render('index', { data }); //render index page
     })
 })
@@ -54,9 +55,6 @@ app.post('/search', upload.none(), function(req, res) {
       //Modify data to a more useable format, remove un-needed data
       let data = modify.resultsData(parsedData);
       let searchResults = search.matches(query, data);
-      console.log("match found: ", searchResults.matchFound);
-      console.log("genre match found: ", searchResults.genreMatch);
-      console.log("keyword match found: ", searchResults.keywordMatch);
       res.render('results', { searchResults }); //render index page
     })
 })
