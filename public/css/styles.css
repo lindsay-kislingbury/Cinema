@@ -1,5 +1,6 @@
-/*Styles used on both pages*/
+/*Styles used on all pages*/
 
+/*Global Styles*/
 *{
   margin: 0;
   padding: 0;
@@ -10,6 +11,18 @@ body{
   background-color: #f2ddb0;
 }
 
+h2{
+  font-size: 35px;
+}
+
+
+h3{/*Used for movie titles on results page*/
+  font-size: 25px;
+  margin-top: 0px;
+  display: inline;
+}
+
+/*Link Syles*/
 a:link {
   color: #f2ddb0;
   background-color: transparent;
@@ -34,6 +47,7 @@ a:active {
   text-decoration: underline;
 }
 
+/*Banner Styles*/
 header {
   display: flex;
   justify-content: flex-end;
@@ -42,7 +56,6 @@ header {
   box-shadow: 0 1px 8px #ddd;
   background-color: rgb(63, 63, 63);
 }
-
 
 #nav-logo {
   margin-right: auto;
@@ -67,17 +80,8 @@ header a:hover {
   color: #AA4A44;
 }
 
-h2{
-  font-size: 35px;
-}
 
-
-h3{/*Used for movie titles on results page*/
-  font-size: 25px;
-  margin-top: 0px;
-  display: inline;
-}
-
+/*Button Styles*/
 input[type=button], input[type=submit], input[type=reset] {
   background-color: rgb(63, 63, 63);
   border: none;
@@ -90,13 +94,14 @@ input[type=button], input[type=submit], input[type=reset] {
   cursor: pointer;
 }
 
+/*Index page Styles*/
 .flex-searchbox{
   display: flex;
   flex: 1 1 100%;
   flex-wrap: wrap;
   flex-flow: row wrap;
   justify-content: space-around;
-  color: rgb(27, 27, 27);
+  color: rgb(37, 37, 37);
   background-color: #b65c55;
   padding-top: 15px;
   padding-right: 40px;
@@ -118,6 +123,7 @@ input[type=button], input[type=submit], input[type=reset] {
   width: 180px;
 }
 
+/*About Page Styles*/
 .flex-aboutbox-container{
   display: flex;  
   flex-flow: row wrap;
@@ -159,8 +165,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 /*Results Page Styles*/
-/*Container for details section at the top*/
-.flex-details-container{
+.flex-details-container{ /*Search Results details at top of page*/
   display: flex;
   flex: 1 1 100%;
   flex-wrap: wrap;
@@ -181,8 +186,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 
-/*Container for list of results*/
-.flex-results-container{ 
+.flex-results-container{ /*Container for the list of results*/
   display: flex;
   flex: 0 0 100%;
   flex-flow: row wrap;
@@ -192,15 +196,15 @@ input[type=button], input[type=submit], input[type=reset] {
   padding-left: 40px;
 }
 
-/*Flex box for each individual movie*/
-.flex-result{ 
+
+.flex-result{ /*Container for each individual movie*/
   flex: 0  0 100%;
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: left;
 }
 
-/*Collapsible Items Formatting*/
+/*Collapsible Items*/
 details{
   width: 100%;
   padding: 5px;

@@ -1,9 +1,10 @@
-//Returns modified array of movies with relevant info, better formatting
+//Returns modified movie data for movie search
 function resultsData(parsedData){
     let movies = movieData(parsedData);
     return movies;
 }
 
+//Returns modified movie data for index page
 function indexData(parsedData){
     let movies = movieData(parsedData);
     let allKeywords = keywordData(movies);
@@ -15,7 +16,7 @@ function indexData(parsedData){
     return exportData;
 }
 
-//modify some elements of the source data, keep only useful info and return
+//Returns modified movie data
 function movieData(parsedData){
     var modifiedMovies = [];
     parsedData.forEach(movie => {

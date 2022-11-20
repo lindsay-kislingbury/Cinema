@@ -10,7 +10,7 @@
     <body>
         <ul class = "flex-details-container">
             <li class = "flex-details-info">
-            <p> 
+            <p> <% if((searchResults.searchGenres.length > 0) && (!searchResults.searchKeywords)) { %>
                 <% if(searchResults.matchFound) { %>
                     Cinema found <%-searchResults.bestMatches.length %> 
                     <% if (searchResults.searchGenres.length == 1) { %>  
@@ -31,7 +31,7 @@
                     <% } %>
                     <% if(searchResults.searchGenres.length > 1) { %> movies 
                     <% } else { %> movie <% } %>
-                <% } else { %> <%- searchResults.searchGenres[i] %> movies <% } %>
+                <% } %>
                 <br>
                 <% if(searchResults.searchKeywords) { %>
                     matching 
@@ -47,6 +47,9 @@
                 <% if((searchResults.matchFound) && (searchResults.bestMatches.length > 30)) { %> 
                     displaying the top 30 results... 
                 <% } %>
+            <% } else { %> Cinema returned no results. <br> Please choose at least one genre or keyword
+            <% } %>
+            
             </p>
             </li>
         </ul>
@@ -79,7 +82,7 @@
             </ul>
             <input type="submit" onclick="javascript:history.back()" value="Back">
     </body>
-    </html>
+</html>
 
 
 

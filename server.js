@@ -55,6 +55,8 @@ app.post('/search', upload.none(), function(req, res) {
       //Modify data to a more useable format, remove un-needed data
       let data = modify.resultsData(parsedData);
       let searchResults = search.matches(query, data);
+      console.log('genre choice', searchResults.searchGenres);
+      console.log('keyword choice', searchResults.searchKeywords);
       res.render('results', { searchResults }); //render index page
     })
 })
@@ -62,7 +64,6 @@ app.post('/search', upload.none(), function(req, res) {
 app.get('/about', (req, res) => {
   res.render('about');
 })
-
 
 //port 3000
 app.listen(port, () => {
