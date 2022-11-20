@@ -101,7 +101,7 @@ input[type=button], input[type=submit], input[type=reset] {
   flex-wrap: wrap;
   flex-flow: row wrap;
   justify-content: space-around;
-  color: rgb(37, 37, 37);
+  color: rgb(43, 42, 42);
   background-color: #b65c55;
   padding-top: 15px;
   padding-right: 40px;
