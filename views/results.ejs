@@ -10,34 +10,32 @@
     <body>
         <ul class = "flex-details-container">
             <li class = "flex-details-info">
-            <p> <% if((searchResults.searchGenres.length > 0) && (!searchResults.searchKeywords)) { %>
-                <% if(searchResults.matchFound) { %>
+            <p> 
+            <% if((searchResults.searchGenres.length > 0) || (searchResults.searchKeywords)) { %> 
+                <% if(searchResults.matchFound) { %> 
                     Cinema found <%-searchResults.bestMatches.length %> 
-                    <% if (searchResults.searchGenres.length == 1) { %>  
-                            <%- searchResults.searchGenres[0] %> movies 
-                    <% } %>
-                <% } else { %> 
-                    Cinema found no 
-                <% } %>
-                <% if (searchResults.searchGenres.length > 1) { %>
+                <% } else { %> Cinema found no <% } %>
+
+                <% if (searchResults.searchGenres.length > 0) { %>
                     <% for(var i=0; i < searchResults.searchGenres.length; i++) { %>
-                        <% if(i == searchResults.searchGenres.length-1) { %>
+                        <% if(i != searchResults.searchGenres.length-1) { %><%- searchResults.searchGenres[i]%>,
+                        <% } else { %> <%- searchResults.searchGenres[i]%> <% } %>
+                        <% if(i == searchResults.searchGenres.length-2) { %> 
                             <% if(searchResults.genreChoice == "any") { %> or <% } %>
                             <% if (searchResults.genreChoice == "all") { %> and <% } %>
-                            <%- searchResults.searchGenres[i] %> 
-                        <% } else {%>
-                            <%- searchResults.searchGenres[i] %> 
                         <% } %>
                     <% } %>
-                    <% if(searchResults.searchGenres.length > 1) { %> movies 
-                    <% } else { %> movie <% } %>
                 <% } %>
+                <% if((searchResults.matchFound) && (searchResults.bestMatches.length > 1)) { %> movies 
+                <% } else if((searchResults.matchFound) && (searchResults.bestMatches.length == 1)){ %> movie
+                <% } else { %> movies <% } %>
                 <br>
                 <% if(searchResults.searchKeywords) { %>
                     matching 
-                    <%- searchResults.searchKeywords %></p> 
+                    <%- searchResults.searchKeywords %>
                 <% } %>
-                <br>
+                </p>
+                <br> 
                 <% if((!searchResults.matchFound) || (searchResults.bestMatches.length == 0)) { %>
                     <p style = "font-weight=lighter;">
                         don't be so picky! <br>
@@ -45,12 +43,11 @@
                     </p>
                 <% } %>
                 <% if((searchResults.matchFound) && (searchResults.bestMatches.length > 30)) { %> 
-                    displaying the top 30 results... 
+                    <p> displaying the top 30 results... </p>
                 <% } %>
-            <% } else { %> Cinema returned no results. <br> Please choose at least one genre or keyword
+            <% } else { %> 
+                <p>Cinema returned no results. <br> Please choose at least one genre or keyword</p>
             <% } %>
-            
-            </p>
             </li>
         </ul>
         <!--End of Details Container-->
