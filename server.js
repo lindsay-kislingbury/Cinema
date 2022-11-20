@@ -1,7 +1,9 @@
-//Express: Routing 
-const express = require('express') //express plug in
+//Express
+const express = require('express') 
 const app = express()
 const port = 3000
+
+//Express options
 const path = require('path');
 app.set('view engine', 'ejs')
 app.use(express.json())
@@ -21,30 +23,31 @@ const csvParser = require("csv-parser") //csv-parser plug in
 const modify = require('./services/modify.js');
 const search = require('./services/search.js');
 
-
-//pre load movie data before loading index
+//GET index page
 app.get('/', (req, res) => {
   var parsedData = [];
-  //Parse csv data to array of objects
+  //Using csv-parser to parse csv data to array of objects
   fs.createReadStream(csvFilePath)
     .pipe(csvParser())
     .on('data', (data) => {
       parsedData.push(data);
     })
     .on("end", () => {
-      //Modify data to a more useable format, remove un-needed data
-      let data = modify.indexData(parsedData);
-      res.render('index', { data }); //render index page
+      //Extract genres from movie data
+      let genres = modify.genreData(parsedData);
+      //Render index page, send genres to the page
+      res.render('index', { genres }) 
     })
 })
 
 
+//POST index page search form
 //Using multer to get multipart form data
 app.post('/search', upload.none(), function(req, res) {
   req.header('Content-Type', 'application/json')
   let query = req.body;
   var parsedData = [];
-  //Parse csv data to array of objects
+  //Using csv-parser to parse csv data to array of objects
   fs.createReadStream(csvFilePath)
     .pipe(csvParser())
     .on('data', (data) => {
@@ -52,18 +55,21 @@ app.post('/search', upload.none(), function(req, res) {
     })
     .on("end", () => {
       //Modify data to a more useable format, remove un-needed data
-      let data = modify.resultsData(parsedData);
+      let data = modify.movieData(parsedData);
+      //Perform search 
       let searchResults = search.matches(query, data);
-      res.render('results', { searchResults }); //render index page
+      //Render Results page, send search results to the page
+      console.log(searchResults)
+      res.render('results', { searchResults })
     })
 })
 
+//GET about page
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about')
 })
 
-//port 3000
+//Server listening 
 app.listen(port, () => {
-  console.log('app listening on port 3000')
+  console.log(`app listening on port ${port}`)
 })
-

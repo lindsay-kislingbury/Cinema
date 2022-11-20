@@ -1,19 +1,13 @@
-//Returns modified movie data for movie search
-function resultsData(parsedData){
-    let movies = movieData(parsedData);
-    return movies;
-}
-
-//Returns modified movie data for index page
-function indexData(parsedData){
-    let movies = movieData(parsedData);
-    let allKeywords = keywordData(movies);
-    let allGenres = genreData(movies)
-    let exportData = {
-        allKeywords: allKeywords,
-        allGenres: allGenres
-    };
-    return exportData;
+//Return all genres present in the dataset
+function genreData(movies){
+    let modifiedMovies = movieData(movies);
+    genreArr = [];
+    modifiedMovies.forEach(movie => {
+        movie.genres.forEach(genre => {
+            if(!genreArr.includes(genre)) genreArr.push(genre);
+        });
+    });
+    return genreArr;
 }
 
 //Returns modified movie data
@@ -90,30 +84,4 @@ function languageCnv(language){
 
 }
 
-//Return all keywords present in the dataset
-function keywordData(movies){
-    keywordArr = [];
-    movies.forEach(movie => {
-        movie.keywords.forEach(keyword => {
-            if(!keywordArr.includes(keyword)) keywordArr.push(keyword);
-        });
-    });
-    return keywordArr;
-}
-
-//Return all genres present in the dataset
-function genreData(movies){
-    genreArr = [];
-    movies.forEach(movie => {
-        movie.genres.forEach(genre => {
-            if(!genreArr.includes(genre)) genreArr.push(genre);
-        });
-    });
-    return genreArr;
-}
-
-//Export to server.js
-module.exports = {indexData, resultsData};
-
-
-
+module.exports = {genreData, movieData};
