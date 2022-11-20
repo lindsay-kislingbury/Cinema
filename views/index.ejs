@@ -14,11 +14,12 @@
           <% for(var i=0; i <data.allGenres.length; i++) { %>    
             <li class="flex-search-genre">
               <input type = "checkbox" name = "genres" value = "<%=data.allGenres[i] %>">
-              <%= data.allGenres[i] %>
+               <%= data.allGenres[i] %>
               <% if (i % 5 == 0) { %> </br> <% } %>
             </li>
           <% } %> 
           <br> 
+          <br>
           <p style="font-size=20px;">
             <input type = "radio" name = "genreChoice" value = "all" checked> all selected genres  <br>
             <input type = "radio" name = "genreChoice" value = "any"> any of the selected genres 
