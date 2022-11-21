@@ -10,7 +10,10 @@
 body{
   background-color: #f2ddb0;
 }
-
+h4{
+  color:rgb(0, 0, 0);
+  text-align: center;
+}
 h2{
   font-size: 35px;
 }
@@ -244,3 +247,4 @@ details[open] > summary{
   background-color:rgb(46, 46, 46);
   color: #ccc;
 }
+

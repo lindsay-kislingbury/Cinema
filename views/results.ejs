@@ -46,12 +46,12 @@
                 <br> 
                 <% if((!searchResults.matchFound) || (searchResults.bestMatches.length == 0)) { %>
                     <p style = "font-weight=lighter;">
-                        don't be so picky! <br>
-                        try searching for fewer keywords or genres
+                        Don't be so picky! <br>
+                        Try searching for fewer keywords or genres.
                     </p>
                 <% } %>
                 <% if((searchResults.matchFound) && (searchResults.bestMatches.length > 30)) { %> 
-                    <p> displaying the top 30 results... </p>
+                    <p> Displaying the top 30 results... </p>
                 <% } %>
             <% } else { %> 
                 <p>Cinema returned no results. <br> Please choose at least one genre or keyword</p>
@@ -85,7 +85,9 @@
             <% } %>
             <% } %>
             </ul>
-            <input type="submit" onclick="javascript:history.back()" value="Back">
+              <h4>
+            <input type="button" onclick="javascript:history.back()" value="Back" style="background-color: rgb(63, 63, 63); color: rgb(255, 150, 150); font-weight: bold; ">
+              </h4>
     </body>
 </html>
 
