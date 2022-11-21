@@ -59,7 +59,6 @@ app.post('/search', upload.none(), function(req, res) {
       //Perform search 
       let searchResults = search.matches(query, data);
       //Render Results page, send search results to the page
-      console.log(searchResults)
       res.render('results', { searchResults })
     })
 })
