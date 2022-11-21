@@ -100,7 +100,8 @@ string tagline. short, one sentence tagline for the movie.
 #### <li>runtime    
 string runtime in minutes.    
 #### <li>homepage    
-string homepage for a movie. WARNING! some of the homepages appear to direct to old sites that do not exist, or now point to other movies.     
+string homepage for a movie.    
+WARNING! some of the homepage links are broken or point to old sites. 
 #### <li>language    
 string original language of the movie.    
 #### <li>releaseDate    
