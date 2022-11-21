@@ -50,15 +50,17 @@ a:active {
 /*Banner Styles*/
 header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding: 8px 50px;
+  padding: 8px 10px;
   box-shadow: 0 1px 8px #ddd;
   background-color: rgb(63, 63, 63);
 }
 
+
 #nav-logo {
   margin-right: auto;
+  align-self: flex-start;
   font-size: 1.5em;
 }
 
@@ -66,18 +68,18 @@ header li {
   align-self: flex-start;
   list-style: none;
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 header h2 {
   font-size: 30px;
   text-align: center;  
-  color: #fdd377;  /* #AA4A44*/
+  color: #fdd377;
   padding: 0 20px;
 }
 
 header a {
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
   color: #f2ddb0;
   transition: all 0.3s ease 0s;
