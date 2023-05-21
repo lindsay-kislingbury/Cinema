@@ -36,7 +36,7 @@ function matches(query, movieData){
         includeMatches: false,
         shouldSort: true,
         findAllMatches: true,
-        threshold: 0.1,
+        threshold: 0.2,
         keys: ['keywords', 'original_title'],
     }
 
